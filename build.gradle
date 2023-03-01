@@ -1,0 +1,25 @@
+buildscript {
+  ext {
+    githubTokenUserName = System.env.githubTokenUserName
+    githubToken = System.env.githubToken
+  }
+  repositories {
+    google()
+    mavenCentral()
+  }
+  dependencies {
+    classpath("com.android.tools.build:gradle:7.3.0")
+    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.21")
+  }
+}
+
+plugins {
+  id "pl.allegro.tech.build.axion-release" version "1.14.4"
+}
+
+allprojects {
+  project.version(scmVersion.version)
+  repositories {
+    google()
+  }
+}
