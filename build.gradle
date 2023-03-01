@@ -1,8 +1,4 @@
 buildscript {
-  ext {
-    githubTokenUserName = "rainqer"
-    githubToken = "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"
-  }
   repositories {
     google()
     mavenCentral()
@@ -18,14 +14,6 @@ plugins {
 }
 
 
-scmVersion {
-  useHighestVersion = true
-  checks {
-    uncommittedChanges = true
-    aheadOfRemote = true
-    snapshotDependencies = true
-  }
-}
 allprojects {
   project.version(scmVersion.version)
   repositories {
