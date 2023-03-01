@@ -20,8 +20,8 @@ plugins {
 
 scmVersion {
   repository {
-    customUsername = githubTokenUserName
-    customPassword = githubToken
+    customUsername.set(githubTokenUserName)
+    customPassword.set(githubToken)
   }
 }
 allprojects {
@@ -32,6 +32,6 @@ allprojects {
 }
 
 println("abc")
-println(scmVersion.repository.customUsername.get())
-println(scmVersion.repository.customPassword.get())
+println(scmVersion.repository.customUsername)
+println(scmVersion.repository.customPassword)
 println(project.version)
