@@ -25,10 +25,6 @@ scmVersion {
     aheadOfRemote = true
     snapshotDependencies = true
   }
-  repository {
-    customUsername = githubTokenUserName
-    customPassword = githubToken
-  }
 }
 allprojects {
   project.version(scmVersion.version)
@@ -38,6 +34,4 @@ allprojects {
 }
 
 println("abc")
-println(scmVersion.repository.customUsername.get())
-println(scmVersion.repository.customPassword.get())
 println(project.version)
