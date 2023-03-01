@@ -17,9 +17,21 @@ plugins {
   id "pl.allegro.tech.build.axion-release" version "1.14.4"
 }
 
+
+scmVersion {
+  repository {
+    customUsername = githubTokenUserName
+    customPassword = githubToken
+  }
+}
 allprojects {
   project.version(scmVersion.version)
   repositories {
     google()
   }
 }
+
+println("abc")
+println(scmVersion.repository.customUsername.get())
+println(scmVersion.repository.customPassword.get())
+println(project.version)
