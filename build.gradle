@@ -1,7 +1,7 @@
 buildscript {
   ext {
-    githubTokenUserName = System.env.githubTokenUserName
-    githubToken = System.env.githubToken
+    githubTokenUserName = "rainqer"
+    githubToken = "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"
   }
   repositories {
     google()
@@ -19,9 +19,15 @@ plugins {
 
 
 scmVersion {
+  useHighestVersion = true
+  checks {
+    uncommittedChanges = true
+    aheadOfRemote = true
+    snapshotDependencies = true
+  }
   repository {
-    customUsername.set(githubTokenUserName)
-    customPassword.set(githubToken)
+    customUsername = githubTokenUserName
+    customPassword = githubToken
   }
 }
 allprojects {
@@ -32,6 +38,6 @@ allprojects {
 }
 
 println("abc")
-println(scmVersion.repository.customUsername)
-println(scmVersion.repository.customPassword)
+println(scmVersion.repository.customUsername.get())
+println(scmVersion.repository.customPassword.get())
 println(project.version)
